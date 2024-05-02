@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure-%&4dfwaayogd!r)=ot3hi1ybepd=s9d%$gkcomne)rq-a&fnmq"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 import socket
 
@@ -31,7 +31,8 @@ s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 s.connect(("8.8.8.8", 80))
 ip = s.getsockname()[0]
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '127.0.0.1']
+ALLOWED_HOSTS = ["127.0.0.1", f"{ip}", "localhost"]
+
 
 # Application definition
 
@@ -97,7 +98,7 @@ DATABASES = {
        }
    }
 
-
+    
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
